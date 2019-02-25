@@ -56,6 +56,7 @@ d3.csv('makkarit.csv').then(function(data){
         L.marker([])
         console.log(data[i]);
         console.log('Voi vittujen keväät');
+        console.log('Uusia muutoksia')
     }
 
 });
