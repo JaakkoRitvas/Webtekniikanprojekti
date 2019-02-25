@@ -49,12 +49,16 @@ function error(err) {
 }
 
 
+// Here you will set your current location your map by asking the user
+// to allow location access
 navigator.geolocation.getCurrentPosition(ifSuccess, error, options);
 
+// This loop is to parse json data with D3. This will get the json file
+// and one element at a time add it to map with a popup info of the restaurant
 d3.json('makkarit5.json').then(function(data){
     for(i = 0; i < data.length; i++){
-        L.marker([])
-        console.log(data[i]);
+        L.marker([data[i].latitude, data[i].longitude]).addTo(mymap)
+            .bindPopup("McDonald's " + data[i].nimi).on('popupopen');
     }
 
 });
