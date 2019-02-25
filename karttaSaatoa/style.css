@@ -2,6 +2,7 @@
 #map {
     width: 60%;
     height: 400px;
+    align-content: center
 }
 h1,h2,h3 {
     font-family: 'Playfair Display', serif;
