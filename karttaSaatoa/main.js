@@ -51,7 +51,7 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(ifSuccess, error, options);
 
-d3.csv('makkarit.csv').then(function(data){
+d3.json('makkarit5.json').then(function(data){
     for(i = 0; i < data.length; i++){
         L.marker([])
         console.log(data[i]);
