@@ -1,0 +1,146 @@
+[
+    {
+      "nimi": "Helsinki Ruoholahti",
+      "osoite": "Itämerenkatu 14",
+      "latitude": 60.163363,
+      "longitude": 24.913872
+    },
+    {
+      "nimi": "Helsinki Forum Katutaso",
+      "osoite": "Mannerheimintie 16",
+      "latitude": 60.168863,
+      "longitude": 24.939553
+    },
+    {
+      "nimi": "Helsinki Forum Pohjakerros",
+      "osoite": "Mannerheimintie 20",
+      "latitude": 60.169411,
+      "longitude": 24.938498
+    },
+    {
+      "nimi": "Helsinki Kamppi",
+      "osoite": "Fredrikinkatu 46",
+      "latitude": 60.169041,
+      "longitude": 24.93023
+    },
+    {
+      "nimi": "Helsinki Asematunneli",
+      "osoite": "Asema-aukio 1",
+      "latitude": 60.169804,
+      "longitude": 24.941811
+    },
+    {
+      "nimi": "Helsinki Kluuvi",
+      "osoite": "Kluuvikatu 7",
+      "latitude": 60.169488,
+      "longitude": 24.947715
+    },
+    {
+      "nimi": "Helsinki Hakaniemi",
+      "osoite": "Siltasaarenkatu 12",
+      "latitude": 60.178513,
+      "longitude": 24.949722
+    },
+    {
+      "nimi": "Helsinki Teollisuuskatu",
+      "osoite": "Teollisuuskatu 6",
+      "latitude": 60.190498,
+      "longitude": 24.956429
+    },
+    {
+      "nimi": "Helsinki Töölö",
+      "osoite": "Mannerheimintie 53",
+      "latitude": 60.189945,
+      "longitude": 24.916233
+    },
+    {
+      "nimi": "Helsinki Meilahti",
+      "osoite": "Paciuksenkatu 29",
+      "latitude": 60.195418,
+      "longitude": 24.890553
+    },
+    {
+      "nimi": "Helsinki Pitäjänmäki",
+      "osoite": "Vanha Viertotie 29",
+      "latitude": 60.213827,
+      "longitude": 24.880127
+    },
+    {
+      "nimi": "Helsinki Herttoniemi",
+      "osoite": "Laivalahdenkatu 1",
+      "latitude": 60.194212,
+      "longitude": 25.037847
+    },
+    {
+      "nimi": "Espoo Niittykumpu",
+      "osoite": "Niittymaantie 6",
+      "latitude": 60.170991,
+      "longitude": 24.778151
+    },
+    {
+      "nimi": "Espoo Kauniaistentie",
+      "osoite": "Palomiehentie 2",
+      "latitude": 60.208601,
+      "longitude": 24.743034
+    },
+    {
+      "nimi": "Helsinki Itäkeskus Kauppakeskus",
+      "osoite": "Itäkatu 1-5 A 29",
+      "latitude": 60.21169,
+      "longitude": 25.083989
+    },
+    {
+      "nimi": "Helsinki Kivikko",
+      "osoite": "Kivikonlaita 2",
+      "latitude": 60.231176,
+      "longitude": 25.054819
+    },
+    {
+      "nimi": "Helsinki Pukinmäki",
+      "osoite": "Pukinm'enkaari 55",
+      "latitude": 60.24292,
+      "longitude": 24.978276
+    },
+    {
+      "nimi": "Vantaa Tammisto",
+      "osoite": "Kirkkotie 4",
+      "latitude": 60.270776,
+      "longitude": 24.974932
+    },
+    {
+      "nimi": "Vantaa Kaivoksela",
+      "osoite": "Louhijantie 1",
+      "latitude": 60.263904,
+      "longitude": 24.871951
+    },
+    {
+      "nimi": "Espoo Lommila",
+      "osoite": "Lommilanrinne 2",
+      "latitude": 60.219664,
+      "longitude": 24.654633
+    },
+    {
+      "nimi": "Kirkkonummi",
+      "osoite": "Asemankaari 2",
+      "latitude": 60.121354,
+      "longitude": 24.441426
+    },
+    {
+      "nimi": "Helsinki Ala-Tikkurila",
+      "osoite": "Aamuruskontie 2 A",
+      "latitude": 61.511698,
+      "longitude": 21.815636
+    },
+    {
+      "nimi": "Vantaa Vaarala",
+      "osoite": "Lähdepuistontie 2",
+      "latitude": 60.266724,
+      "longitude": 25.100051
+    },
+    {
+      "nimi": "Tuusula",
+      "osoite": "Hyrylänkatu 4",
+      "latitude": 60.396184,
+      "longitude": 25.020762
+    }
+  ]
