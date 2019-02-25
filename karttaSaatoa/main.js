@@ -53,7 +53,7 @@ navigator.geolocation.getCurrentPosition(ifSuccess, error, options);
 
 d3.csv('makkarit.csv').then(function(data){
     for(i = 0; i < data.length; i++){
-        L.marker([kikkeli])
+        L.marker([])
         console.log(data[i]);
         console.log('Voi vittujen keväät');
 
