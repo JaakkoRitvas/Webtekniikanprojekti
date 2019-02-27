@@ -53,12 +53,23 @@ function error(err) {
 // to allow location access
 navigator.geolocation.getCurrentPosition(ifSuccess, error, options);
 
+// Here we will create an custom icon settings for mcdonalds icon
+const mcIcon = L.icon({
+    iconUrl: 'Kuvat/mcpinpoint.png',
+    iconSize: [41, 60],
+    iconAnchor: [21, 59],
+    popupAnchor: [5, -60]
+
+});
+
 // This loop is to parse json data with D3. This will get the json file
 // and one element at a time add it to map with a popup info of the restaurant
 d3.json('makkarit5.json').then(function(data){
     for(i = 0; i < data.length; i++){
-        L.marker([data[i].latitude, data[i].longitude]).addTo(mymap)
+        L.marker([data[i].latitude, data[i].longitude], {icon: mcIcon}).addTo(mymap)
             .bindPopup("McDonald's " + data[i].nimi).on('popupopen');
     }
 
 });
+
+// I think the ^top block needs to be modifyed so that it only shows the nearest restaurant
