@@ -1,75 +1,87 @@
-// Valitaan elementit joita halutaan muokata
+// We will select the element
+const navigoi = document.querySelector('#navigoi a');
 
+// We will create and map
+const map = L.map('map');
 
-// Luodaan tyhjä kartta
-const mymap = L.map('map');
-
-// Lisätään openstreet map tyhjään karttaan
+// Adding openstreetmap to an empty container
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(mymap);
+}).addTo(map);
 
-// Asetukset paikkatiedon hakua varten (valinnainen)
+// Setting up some options
 const options = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
 };
 
-// Senter map to certain cordinates
-function updateMap(coord) {
-    mymap.setView([coord.latitude, coord.longitude], 11)
-}
-
-
-function addYourCurrentPosition(coord){
-    L.marker([coord.latitude, coord.longitude]).addTo(mymap);
-}
-
-// Global where current location is stored
-let myPosition = null;
-
-function ifSuccess(pos) {
-    myPosition = pos.coords;
-
-    console.log('Your current position is:')
-    console.log(`Latitude : ${myPosition.latitude}`);
-    console.log(`Longitude: ${myPosition.longitude}`);
-    console.log(`More or less ${myPosition.accuracy} meters.`);
-
-    updateMap(myPosition);
-    addYourCurrentPosition(myPosition);
-    // TODO here will be added function to find nearest mcdonalds
-
-}
-
-// If there is an error getting the coords this will be run
-function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
-
-// Here you will set your current location your map by asking the user
-// to allow location access
-navigator.geolocation.getCurrentPosition(ifSuccess, error, options);
-
-// Here we will create an custom icon settings for mcdonalds icon
-const mcIcon = L.icon({
-    iconUrl: 'Kuvat/mcpinpoint.png',
+// Custom icon for all the Mc Donald's
+const mcPinPoint = L.icon({
+    iconUrl: 'mcpinpoint.png',
     iconSize: [41, 60],
     iconAnchor: [21, 59],
     popupAnchor: [5, -60]
 
 });
 
-// This loop is to parse json data with D3. This will get the json file
-// and one element at a time add it to map with a popup info of the restaurant
-d3.json('makkarit5.json').then(function(data){
-    for(i = 0; i < data.length; i++){
-        L.marker([data[i].latitude, data[i].longitude], {icon: mcIcon}).addTo(mymap)
-            .bindPopup("McDonald's " + data[i].nimi).on('popupopen');
-    }
+// function to add your own location to map
+function addYourCurrentPosition(coord) {
+    L.marker([coord.latitude, coord.longitude]).addTo(map);
+}
 
-});
+// Senter map to certain cordinates
+function updateMap(crd) {
+    map.setView([crd.latitude, crd.longitude], 11);
+}
 
-// I think the ^top block needs to be modifyed so that it only shows the nearest restaurant
+// This will add a marker to map whit certain information
+function addMarker(crd, teksti, ikoni) {
+    L.marker([crd.latitude, crd.longitude], {icon: ikoni}).addTo(map)
+        .bindPopup(teksti).on('popupopen', function () {
+        navigoi.href = `https://www.google.com/maps/dir/?api=1&origin=${myLocation.latitude},${myLocation.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
+    });
+}
+
+// Global variable for your own location
+let myLocation = null;
+
+// Funktio that will be run after the location data is found
+function success(pos) {
+    myLocation = pos.coords;
+
+    // Tulostetaan paikkatiedot konsoliin
+    console.log('Your current position is:');
+    console.log(`Latitude : ${myLocation.latitude}`);
+    console.log(`Longitude: ${myLocation.longitude}`);
+    console.log(`More or less ${myLocation.accuracy} meters.`);
+
+    updateMap(myLocation);
+    addYourCurrentPosition(myLocation);
+    haeLatauspisteet();
+
+}
+
+// In case off error this will activate
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+// Start the navigation
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+// This will add the restaurants to map from the json table using addMarker
+function haeLatauspisteet() {
+
+    d3.json('makkarit5.json').then(function (data) {
+        console.log(data);
+        for(i = 0; i < data.length; i++){
+            const ravintolanNimi = data[i].nimi;
+            const koordit = {
+                latitude: data[i].latitude,
+                longitude: data[i].longitude,
+            };
+            addMarker(koordit, ravintolanNimi, mcPinPoint)
+        }
+    })
+
+}
